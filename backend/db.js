@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Conexión a la base de datos SQL Server
-const sequelize = new Sequelize('matias', 'matias_sequel_user', 'mv40133172', {
+const sequelize = new Sequelize('matias', 'matias_sequel_user', '*******', {
   host: 'localhost\\SQLEXPRESS',
   dialect: 'mssql',
   dialectOptions: {
