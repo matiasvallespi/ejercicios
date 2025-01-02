@@ -11,7 +11,6 @@ export const Header = () => {
           <Link to='/about' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>About</Link>
           <Link to='/calculadora' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Calculadora</Link>
           <Link to='/to-do-list' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>To-do-list</Link>
-          <Link to='/bg-change' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Bg-change</Link>
           <Link to='/hide-show' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>HideShow</Link>
           <Link to='/temperature' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Temperature</Link>
           <Link to='/random-number' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Random Number</Link>
@@ -22,7 +21,6 @@ export const Header = () => {
           <Link to='/contador' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Contador</Link>
           <Link to='/quiz' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Quiz</Link>
          <Link to='/palindromos' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Palindromos</Link>
-         <Link to='/users' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Users</Link>
          <Link to='/listProd' className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>Products</Link>
         </nav>
       </header>

@@ -21,36 +21,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('¡Algo salió mal!');
 });
 
-let listaUsuario = []
-let id = 0
-
-app.patch("/api/usuarios/:identif", (req, res) => {
-    const identif = parseInt(req.params.identif)
-    const newUser = req.body;
-    let indice = listaUsuario.findIndex(usuario => usuario.id === identif);
-    if (indice !== -1) {
-        listaUsuario[indice] = newUser;
-    }
-    res.status(201).json(listaUsuario);
-});
-
-app.post('/api/usuarios', (req, res) => {
-    const nuevoUsuario = req.body;
-    nuevoUsuario.id = id++
-    listaUsuario.push(nuevoUsuario)
-    res.status(201).json(listaUsuario);
-});
-
-app.get('/api/usuarios', (req, res) => {
-    res.status(201).json(listaUsuario);
-});
-
-app.delete('/api/usuarios', (req, res) => {
-    const index = req.body;
-    listaUsuario.splice(index.i, 1)
-    res.status(201).json(listaUsuario);
-});
-
 app.get('/quiz', (req, res) => {
     const data = [
         { "texto": "¿Cuál es el lugar más frío de la Tierra?", "opciones": ["La Antártida", "El Polo Norte", "La Patagonia"] },
@@ -106,47 +76,6 @@ app.patch('/productos/:id', (req, res) => {
 
 const { sequelize, models } = require('./db');  // Importar la configuración y el modelo
 const { Op } = require('sequelize'); // Desestructurando los operadores de Sequelize
-
-app.post('/comments', async (req, res) => {
-    try {
-        const { comentario } = req.body;
-        await models.Comentario.create({ comentario });
-        res.status(201).json();
-    } catch (error) {
-        console.error('Error al guardar el comentario:', error);
-        res.status(500).json();
-    }});
-    
-
-  app.get('/comments', async (req, res) => {
-    const comentariosDb = await models.Comentario.findAll();
-    const comentarios = comentariosDb.map(e => ({
-        idcomentario: e.dataValues.idcomentario, 
-        comentario: e.dataValues.comentario
-  }))
-    res.status(201).json(comentarios);
-  });
-
-  app.delete('/comments', async (req, res) => {
-    try {
-        const index = req.body.id;
-        await models.Comentario.destroy({ where: {idcomentario: index} });
-        res.status(201).json();
-    } catch (error) {
-        console.error('Error al eliminar el comentario:', error);
-        res.status(500).json();
-}});
-
-app.patch('/comments', async (req, res) => {
-    try {
-        const comentarioNuevo = req.body.comentario;
-        const id = req.body.id
-        await models.Comentario.update({comentario: comentarioNuevo}, { where: {idcomentario: id} });
-        res.status(201).json();
-    } catch (error) {
-        console.error('Error al actualizar el comentario:', error);
-        res.status(500).json();
-}});
   
 /*async function testConnection() {
     try {
@@ -176,6 +105,7 @@ app.patch('/comments', async (req, res) => {
         console.error('Error al obtener la informacion:', error);
     }
 };
+
 testConnection();
 async function testConnection() {
     try {

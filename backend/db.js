@@ -18,10 +18,9 @@ const Articulo = require('./models/articulos')(sequelize, DataTypes);
 const Cliente = require('./models/clientes')(sequelize, DataTypes);
 const Factura = require('./models/facturas')(sequelize, DataTypes);
 const Orden = require('./models/ordenes')(sequelize, DataTypes);
-const Comentario = require('./models/comentarios')(sequelize, DataTypes);
 
 // Crear un objeto para almacenar los modelos
-const models = { Cliente, Orden, Articulo, Comentario };
+const models = { Cliente, Orden, Articulo };
 
 // Inicializar las relaciones
 Object.keys(models).forEach((modelName) => {
